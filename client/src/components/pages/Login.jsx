@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API from "../../api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     await axios
       .post(
-        "http://localhost:4000/api/v1/user/login",
+        API + "api/v1/user/login",
         { email, password, role },
         {
           withCredentials: true,

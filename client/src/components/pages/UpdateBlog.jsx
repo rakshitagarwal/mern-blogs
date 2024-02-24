@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { Context } from "../../main";
+import API from "../../api";
 
 const UpdateBlog = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const UpdateBlog = () => {
     const fetchBlog = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/api/v1/blog/singleblog/${id}`,
+          API + `api/v1/blog/singleblog/${id}`,
           { withCredentials: true }
         );
         setTitle(data.blog.title);
@@ -105,7 +106,7 @@ const UpdateBlog = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/blog/update/${id}`,
+        API + `api/v1/blog/update/${id}`,
         updatedBlog,
         { withCredentials: true }
       );

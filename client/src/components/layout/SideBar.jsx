@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API from "../../api";
 
 const SideBar = ({ setComponent }) => {
   const [show, setShow] = useState(false);
@@ -17,7 +18,7 @@ const SideBar = ({ setComponent }) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/logout",
+        API + "api/v1/user/logout",
         { withCredentials: true }
       );
       setIsAuthenticated(false);

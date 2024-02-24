@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LatestBlogs from "./LatestBlogs";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import API from "../../api";
 
 const MyBlogs = () => {
   const [myBlogs, setMyBlogs] = useState([]);
@@ -10,7 +11,7 @@ const MyBlogs = () => {
   useEffect(() => {
     const fetchMyBlogs = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/blog/myblogs",
+        API + "api/v1/blog/myblogs",
         { withCredentials: true }
       );
       setMyBlogs(data.blogs);
@@ -20,7 +21,7 @@ const MyBlogs = () => {
 
   const deleteBlogHandler = async (id) => {
     await axios
-      .delete(`http://localhost:4000/api/v1/blog/delete/${id}`, {
+      .delete(API + `api/v1/blog/delete/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

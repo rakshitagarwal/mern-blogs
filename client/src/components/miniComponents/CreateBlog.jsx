@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import API from "../../api";
 
 const CreateBlog = () => {
   const [category, setCategory] = useState("");
@@ -97,7 +98,7 @@ const CreateBlog = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/blog/post",
+        API + "api/v1/blog/post",
         formData,
         {
           withCredentials: true,

@@ -15,6 +15,7 @@ import AllAuthors from "./components/pages/AllAuthors";
 import { Context } from "./main";
 import axios from "axios";
 import UpdateBlog from "./components/pages/UpdateBlog";
+import API from "./api";
 
 const App = () => {
   const { setUser, isAuthenticated, setIsAuthenticated, user, setBlogs } =
@@ -23,7 +24,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/user/myprofile",
+          API + "api/v1/user/myprofile",
           {
             withCredentials: true,
           }
@@ -39,7 +40,7 @@ const App = () => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/blog/all",
+          API + "api/v1/blog/all",
           { withCredentials: true }
         );
         setBlogs(data.allBlogs);
