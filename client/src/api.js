@@ -1,3 +1,3 @@
-const API = "https://job-seeker-j54r.onrender.com/";
+const API = "https://mern-blogs-2fqm.onrender.com/";
 
 export default API;

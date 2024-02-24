@@ -19,7 +19,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://localhost:4000'],
+    origin: ['http://localhost:5173', 'http://localhost:4000', 'https://mern-blogs-2fqm.onrender.com'],
     methods: ["GET", "PUT", "DELETE", "POST"],
     credentials: true,
   })
